@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tws.repository.EmployeeMapper">
-    <select id="selectAll" resultType="tws.entity.Employee">
-        select * from `employee`;
+
+  	<select id="selectAll" resultType="tws.entity.Employee">
+       select id,name,age from employee
     </select>
+    
+    <insert id="insertEmployee">
+    	insert into employee (id,name,age) values(#{employee.id},#{employee.name},#{employee.age})
+    </insert>
+    
+    <select id="selectOne" resultType="tws.entity.Employee">
+       select id,name,age from employee where id = #{id}
+    </select>
+    
+    <update id="update">
+    	update employee set name=#{employee.name}, age=#{employee.age} where id=#{id}
+    </update>
+    
+    <delete id="delete">
+    	delete from employee where id = #{id}
+    </delete>
 </mapper>
