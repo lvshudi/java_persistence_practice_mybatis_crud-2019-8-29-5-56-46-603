@@ -5383,3 +5383,5 @@ Verify the connector's configuration, identify and stop any process that's liste
 2019-08-29 16:43:06.332 DEBUG 7468 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Returning handler method [public org.springframework.http.ResponseEntity<java.util.List<tws.entity.Employee>> tws.controller.EmployeeController.getAll()]
 2019-08-29 16:43:06.332 DEBUG 7468 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Last-Modified value for [/employees] is: -1
 2019-08-29 16:43:06.348 DEBUG 7468 --- [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Written [[]] as "application/json" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@655523dd]
+2019-08-29 16:43:06.349 DEBUG 7468 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Null ModelAndView returned to DispatcherServlet with name 'dispatcherServlet': assuming HandlerAdapter completed request handling
+2019-08-29 16:43:06.350 DEBUG 7468 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Successfully completed request

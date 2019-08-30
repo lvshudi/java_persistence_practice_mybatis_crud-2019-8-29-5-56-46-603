@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import tws.dto.EmployeeDTO;
 import tws.entity.Employee;
 import tws.repository.EmployeeMapper;
 
@@ -55,4 +57,19 @@ public class EmployeeController {
     	employeeMapper.delete(id);
     	return ResponseEntity.ok("delete success");
     }
+    
+    @GetMapping("/employees/{id}")
+    public ResponseEntity<EmployeeDTO> getEmployeeWithDesc(@PathVariable String id) {
+    	Employee employee = employeeMapper.selectOne(id);
+    	String desc = "name:" + employee.getName() + "age" + employee.getAge();
+    	
+    	String dtoId = employee.getId();
+    	String dtoName = employee.getName();
+    	String dtoAge = employee.getAge();
+    	
+    	EmployeeDTO employeeDTO = new EmployeeDTO(dtoId, dtoName, dtoAge, desc);
+    	
+    	return ResponseEntity.ok(employeeDTO);
+    }
+    
 }
