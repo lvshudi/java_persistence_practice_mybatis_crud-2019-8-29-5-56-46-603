@@ -1,5 +1,7 @@
 package tws.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,4 +27,12 @@ public class EmployeeService {
 		
 		return employeeDTO;
 	}
+	
+	public List<Employee> getEmployeesByPages(int page, int count) {
+		count = count * (page - 1);
+		List<Employee> employees = employeeMapper.selectEmployeesByPages(page, count);
+		return employees;
+	}
+	
+	
 }

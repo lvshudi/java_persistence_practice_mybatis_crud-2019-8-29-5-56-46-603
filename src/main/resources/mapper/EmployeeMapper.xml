@@ -4,6 +4,11 @@
 
   	<select id="selectAll" resultType="tws.entity.Employee">
        select id,name,age from employee
+       <if test="keyword != null">
+           <bind name="pattern" value="'%' + keyword + '%'" />
+           
+           where `name` like #{pattern}
+       </if>
     </select>
     
     <insert id="insertEmployee">
@@ -21,4 +26,11 @@
     <delete id="delete">
     	delete from employee where id = #{id}
     </delete>
+    
+    <select id="selectEmployeesByPages">
+    	SELECT * FROM user
+    	ORDER BY first_name
+    	OFFSET #{count} ROWS FETCH NEXT #{pages} ROWS ONLY;
+    </select>
+    
 </mapper>
